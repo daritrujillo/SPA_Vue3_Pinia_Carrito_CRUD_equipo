@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-2xl shadow font-medium transition hover:shadow-md;
+  }
+  .btn-primary {
+    @apply btn bg-brand text-white hover:bg-brand-dark;
+  }
+  .btn-secondary {
+    @apply btn bg-white border border-gray-200 hover:bg-gray-50;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow p-4;
+  }
+}
