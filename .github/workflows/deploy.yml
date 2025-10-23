@@ -28,7 +28,21 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install Vite globally (safety)
+        run: npm install -g vite
+
+      - name: Show versions
+        run: |
+          node -v
+          npm -v
+          vite -v
 
       - name: Build
         run: npm run build
@@ -48,3 +62,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
